@@ -1,10 +1,17 @@
 import React, { ReactNode } from 'react';
-import { Button } from '@material-ui/core';
+import BottomNavBar from './components/BottomNavBar';
+import { Box } from '@material-ui/core';
+import MainFrame from './components/MainFrame';
 
-export default class App extends React.Component<{},{}> {
+export default class App extends React.Component<{}, {}> {
 
-  render(): ReactNode {
-    return (<Button variant="contained" color="primary">Przycisk</Button>);
-  };
+    render(): ReactNode {
+        return (
+            <Box display="flex" flexWrap="wrap" flexDirection="row" height="100vh">
+                    <MainFrame />
+                    <BottomNavBar />
+            </Box>
+        );
+    };
 
 }
