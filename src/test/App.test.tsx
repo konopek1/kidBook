@@ -1,12 +1,12 @@
-import { render } from '@testing-library/react';
-import App from './App';
+import App from '../App';
 import React from 'react';
 import renderer from 'react-test-renderer';
+import { MemoryRouter } from 'react-router';
 
 describe('App', () => {
 
   test('Render properly check snapshot state', () => {
-    const appComponent = renderer.create(<App />);
+    const appComponent = renderer.create(<MemoryRouter><App /></MemoryRouter>);
     
     let tree = appComponent.toJSON();
 
