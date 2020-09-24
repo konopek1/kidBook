@@ -22,9 +22,9 @@ export default () => {
   return (
     <Box width="100%" position="fixed" bottom="0">
       <BottomNavigation className={style.navbar} onChange={(event, value) => history.push(value)}>
-        <BottomNavigationAction label="Chat" icon={<ChatIcon />} value="/chat" />
-        <Divider orientation="vertical" />
         <BottomNavigationAction label="Home" icon={<HomeIcon />} value="/home" />
+        <Divider orientation="vertical" />
+        <BottomNavigationAction label="Chat" icon={<ChatIcon />} value="/chat" />
       </BottomNavigation>
     </Box>
   );
