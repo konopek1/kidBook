@@ -1,33 +1,17 @@
 import React from 'react';
 import {
-  Card, CardContent, Typography, CardActions, makeStyles, IconButton,
+  Card, CardContent, Typography, CardActions, IconButton,
 } from '@material-ui/core';
 import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
 import FavoriteIcon from '@material-ui/icons/Favorite';
-
-const useStyles = makeStyles({
-  root: {
-  },
-  bullet: {
-    display: 'inline-block',
-    margin: '0 2px',
-    transform: 'scale(0.8)',
-  },
-  title: {
-    fontSize: 14,
-  },
-  pos: {
-    marginBottom: 12,
-  },
-});
+import style from './style';
 
 export default (props: PostProps) => {
-  const classes = useStyles();
   const { isLiked } = props;
   return (
-    <Card className={classes.root} variant="outlined">
+    <Card variant="outlined">
       <CardContent>
-        <Typography className={classes.title} color="textSecondary" gutterBottom>
+        <Typography style={style.title} color="textSecondary" gutterBottom>
           Word of the Day
         </Typography>
         <Typography variant="h5" component="h2">
@@ -36,7 +20,7 @@ export default (props: PostProps) => {
           o
           lent
         </Typography>
-        <Typography className={classes.pos} color="textSecondary">
+        <Typography style={style.pos} color="textSecondary">
           adjective
         </Typography>
         <Typography variant="body2" component="p">

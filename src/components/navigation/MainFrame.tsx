@@ -5,6 +5,7 @@ import Chat from '../chat/Chat';
 import Home from '../posts/Home';
 import * as ROUTES from '../../constants/routes';
 import SignUpPage from '../login/SignUpPage';
+import SignInPage from '../login/SignInPage';
 
 export default class MainFrame extends React.PureComponent {
   render() {
@@ -16,6 +17,9 @@ export default class MainFrame extends React.PureComponent {
           </Route>
           <Route path={ROUTES.SIGN_UP}>
             <SignUpPage />
+          </Route>
+          <Route path={ROUTES.SIGN_IN}>
+            <SignInPage />
           </Route>
           <Route path={ROUTES.WILDCARD}>
             <Home />

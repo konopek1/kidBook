@@ -8,17 +8,9 @@ import { withRouter } from 'react-router';
 import Box from '@material-ui/core/Box/Box';
 import Firebase, { withFirebase } from '../../Firebase';
 import * as ROUTES from '../../constants/routes';
-import styles from './styles.module.css';
 import style from './style';
 
-export type SignUpFormInjectable = {
-    firebase: Firebase,
-    history: H.History
-};
-
-type PlainProps = { };
-
-type SignUpFormProps = PlainProps & SignUpFormInjectable;
+type SignUpFormProps = Props & SignUpFormInjectable;
 
 type State = {
     username: string;
@@ -26,6 +18,13 @@ type State = {
     passwordOne: string;
     passwordTwo: string;
     error: null| firebase.auth.Error;
+};
+
+type Props = { };
+
+export type SignUpFormInjectable = {
+  firebase: Firebase,
+  history: H.History
 };
 
 const INITIAL_STATE: State = {
@@ -53,6 +52,7 @@ class SignUpFormBase extends React.Component<SignUpFormProps, State> {
       firebase
         .doCreateUserWithEmailAndPassword(email, passwordOne)
         .then((authUser: firebase.auth.UserCredential) => {
+          if (authUser.user) authUser.user.sendEmailVerification();
           this.setState({ ...INITIAL_STATE });
           this.props.history.push(ROUTES.HOME);
         })
@@ -90,16 +90,16 @@ class SignUpFormBase extends React.Component<SignUpFormProps, State> {
             <TextField variant="outlined" style={style.input} name="passwordOne" value={passwordOne} onChange={this.onChange} type="password" placeholder="Password" />
             <TextField variant="outlined" style={style.input} name="passwordTwo" value={passwordTwo} onChange={this.onChange} type="password" placeholder="Confirm Passowrd" />
             <Button disabled={isInvalid} variant="contained" style={style.input} type="submit" color="primary">Submit</Button>
-            {error && <Typography color="error">{error.message}</Typography>}
+            {error && <Typography color="error" align="center">{error.message}</Typography>}
           </Box>
         </form>
       );
     }
 }
 
-const SignUpForm = compose<SignUpFormProps, SignUpFormProps>(
+const SignUpForm = compose<SignUpFormProps, Props>(
   withRouter,
   withFirebase,
-)(SignUpFormBase) as unknown as React.ComponentClass<PlainProps>;
+)(SignUpFormBase);
 
 export default SignUpForm;
