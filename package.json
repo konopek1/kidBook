@@ -17,15 +17,18 @@
     "@types/react-router": "^5.1.8",
     "@types/react-router-dom": "^5.1.5",
     "@types/react-test-renderer": "^16.9.3",
+    "@types/recompose": "^0.30.7",
     "enzyme": "^3.11.0",
     "enzyme-adapter-react-16": "^1.15.4",
     "firebase": "^7.21.0",
+    "history": "^5.0.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-router": "^5.2.0",
     "react-router-dom": "^5.2.0",
     "react-scripts": "3.4.3",
     "react-test-renderer": "^16.13.1",
+    "recompose": "^0.30.0",
     "typescript": "^3.7.5"
   },
   "scripts": {
