@@ -53,6 +53,7 @@ class SignUpFormBase extends React.Component<SignUpFormProps, State> {
         .doCreateUserWithEmailAndPassword(email, passwordOne)
         .then((authUser: firebase.auth.UserCredential) => {
           if (authUser.user) authUser.user.sendEmailVerification();
+
           this.setState({ ...INITIAL_STATE });
           this.props.history.push(ROUTES.HOME);
         })

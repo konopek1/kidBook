@@ -2,22 +2,26 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import { HashRouter } from 'react-router-dom';
-import App from './App';
+import { Provider } from 'mobx-react';
+import App from './components/App/App';
 import * as serviceWorker from './serviceWorker';
 import Firebase, { FirebaseContext } from './Firebase';
+import rootStore from './stores';
 
 ReactDOM.render(
-  <FirebaseContext.Provider value={new Firebase()}>
-    <React.StrictMode>
-      <HashRouter>
-        <App />
-      </HashRouter>
-    </React.StrictMode>
-  </FirebaseContext.Provider>,
+  <Provider {...rootStore}>
+    <FirebaseContext.Provider value={new Firebase()}>
+      <React.StrictMode>
+        <HashRouter>
+          <App />
+        </HashRouter>
+      </React.StrictMode>
+    </FirebaseContext.Provider>
+  </Provider>,
   document.getElementById('root'),
 );
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
 // Learn more about service workers: https://bit.ly/CRA-PWA
-serviceWorker.unregister();
+serviceWorker.register();

@@ -6,9 +6,11 @@ import H from 'history';
 import { compose } from 'recompose';
 import { withRouter } from 'react-router';
 import Box from '@material-ui/core/Box/Box';
+import { inject } from 'mobx-react';
 import Firebase, { withFirebase } from '../../Firebase';
 import * as ROUTES from '../../constants/routes';
 import style from './style';
+import SessionStore from '../../stores/SessionStore';
 
 type Props = {
 
@@ -50,8 +52,10 @@ class SignInFormBase extends React.Component<SignInFormProps, State> {
         this.props.firebase
           .doSignWithEmailAndPassword(email, password)
           .then((authUser: firebase.auth.UserCredential) => {
+            if (!authUser.user?.emailVerified) return this.setState({ error: { message: 'Please verify your email.' } });
+
             this.setState({ ...INITIAL_STATE });
-            this.props.history.push(ROUTES.HOME);
+            return this.props.history.push(ROUTES.HOME);
           })
           .catch((error) => {
             this.setState({ error });

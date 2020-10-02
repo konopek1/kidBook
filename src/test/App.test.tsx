@@ -1,4 +1,4 @@
-import App from '../App';
+import App from '../components/App/App';
 import React from 'react';
 import renderer from 'react-test-renderer';
 import { MemoryRouter } from 'react-router';
