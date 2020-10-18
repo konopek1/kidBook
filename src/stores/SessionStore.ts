@@ -23,4 +23,11 @@ export default class SessionStore {
     get isLoggedIn(): boolean {
       return this.authUser !== null && this.authUser.emailVerified;
     }
+
+    @computed
+    get currentUser(): string|undefined {
+      return this.authUser?.uid;
+    }
 }
+
+export type sessionStoreInjected = {sessionStore: SessionStore};

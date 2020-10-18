@@ -1,7 +1,7 @@
 import React from 'react';
 import { Box } from '@material-ui/core';
 import { Switch, Route } from 'react-router';
-import Chat from '../chat/Chat';
+import Chat from '../chat/ChooseChat';
 import Home from '../posts/Home';
 import * as ROUTES from '../../constants/routes';
 import SignUpPage from '../login/SignUpPage';
@@ -10,7 +10,7 @@ import SignInPage from '../login/SignInPage';
 export default class MainFrame extends React.PureComponent {
   render() {
     return (
-      <Box width="100%">
+      <Box width="100%" height="100%">
         <Switch>
           <Route path={ROUTES.CHAT}>
             <Chat />

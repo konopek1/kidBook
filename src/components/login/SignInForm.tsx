@@ -6,11 +6,9 @@ import H from 'history';
 import { compose } from 'recompose';
 import { withRouter } from 'react-router';
 import Box from '@material-ui/core/Box/Box';
-import { inject } from 'mobx-react';
 import Firebase, { withFirebase } from '../../Firebase';
 import * as ROUTES from '../../constants/routes';
 import style from './style';
-import SessionStore from '../../stores/SessionStore';
 
 type Props = {
 
@@ -35,8 +33,8 @@ const INITIAL_STATE: State = {
   error: null,
 };
 
-  type InputEvent = ChangeEvent<HTMLTextAreaElement | HTMLInputElement>;
-  type SubmitEvent = React.FormEvent<HTMLFormElement>;
+export type InputEvent = ChangeEvent<HTMLTextAreaElement | HTMLInputElement>;
+export type SubmitEvent = React.FormEvent<HTMLFormElement>;
 
 class SignInFormBase extends React.Component<SignInFormProps, State> {
   constructor(props: SignInFormProps) {

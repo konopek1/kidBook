@@ -1,4 +1,4 @@
-import { inject, observer } from 'mobx-react';
+import { inject } from 'mobx-react';
 import React from 'react';
 import { compose } from 'recompose';
 import Firebase, { withFirebase } from '../../Firebase';

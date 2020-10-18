@@ -20,7 +20,7 @@ export default () => {
   const history = useHistory();
 
   return (
-    <Box width="100%" position="fixed" bottom="0">
+    <Box width="100%">
       <BottomNavigation className={style.navbar} onChange={(_, value) => history.push(value)}>
         <BottomNavigationAction label="Home" icon={<HomeIcon />} value="/home" />
         <Divider orientation="vertical" />

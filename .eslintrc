@@ -23,6 +23,7 @@
     "react/jsx-props-no-spreading": "off",
     "import/extensions": "off",
     "import/no-unresolved": "off",
-    "@typescript-eslint/semi": "error"
+    "@typescript-eslint/semi": "error",
+    "no-underscore-dangle": "off"
   }
 }

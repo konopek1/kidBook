@@ -4,8 +4,8 @@ import BottomNavBar from '../navigation/BottomNavBar';
 import MainFrame from '../navigation/MainFrame';
 
 const AuthApp: React.FC = () => (
-  <Box display="flex" flexWrap="wrap" flexDirection="row" height="100vh">
-    <MainFrame />
+  <Box display="flex" flexDirection="column" justifyContent="space-between" height="100vh">
+    <Box overflow="scroll" height="100%"><MainFrame /></Box>
     <BottomNavBar />
   </Box>
 );

@@ -5,6 +5,7 @@ import * as ROUTES from '../../constants/routes';
 import SignUpPage from '../login/SignUpPage';
 import SignInPage from '../login/SignInPage';
 import AboutPage from './AboutPage';
+import VerifyMail from './VerifyMail';
 
 export default class MainFrameNotAuthenticated extends React.PureComponent {
   render() {
@@ -16,6 +17,9 @@ export default class MainFrameNotAuthenticated extends React.PureComponent {
           </Route>
           <Route path={ROUTES.SIGN_IN}>
             <SignInPage />
+          </Route>
+          <Route path={ROUTES.VERIFY_EMAIL}>
+            <VerifyMail />
           </Route>
           <Route path={ROUTES.WILDCARD}>
             <AboutPage />
